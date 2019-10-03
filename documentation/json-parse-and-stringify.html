@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <h1>JSON Parse</h1>
+    <p>We use the JSON.parse() function to turn text into a JavaScript object.</p>
+    <h3>BEFORE</h3>
+    <div id="before">{ "name":"John","age":31,"pets":[{ "animal":"dog", "name":"Fido" },{ "animal":"cat", "name":"Felix"
+        },{ "animal":"hamster", "name":"Lightning" }]}</div>
+    <h3>AFTER</h3>
+    <div id="after"></div>
+    <p>It allows us to more easily access information in an object by using the object.key syntax.
+        This method is especially helpful when receiving information from an AJAX request that needs to be
+        formatted in a readable and usable way.</p>
+    <p>Note that if this is used on a JSON derived from an array, it will return an array rather than an object. <a
+            href='https://www.w3schools.com/js/tryit.asp?filename=tryjson_ajax_array'>Click here for an example</a></p>
+    <p>Avoid using functions and dates inside JSON objects.</p>
+
+    <script>
+        var text = '{ "name":"John","age":31,"pets":[{ "animal":"dog", "name":"Fido" },{ "animal":"cat", "name":"Felix" },{ "animal":"hamster", "name":"Lightning" }]}';
+        var parsedText = JSON.parse(text);
+        var newText = document.createElement('p');
+        newText.innerHTML = parsedText.name + ' is ' + parsedText.age + ' years old and has ' + parsedText.pets.length + ' pets.';
+        var container = document.getElementById('after').appendChild(newText);
+    </script>
+
+    <h1>JSON Stringify</h1>
+    <p>We use the JSON.stringify() function to turn objects into strings. In a way, it is the opposite to JSON.parse().
+    </p>
+    <h3>BEFORE</h3>
+    <div id="before2">{ name: "John", age: 30, city: "New York" }</div>
+    <h3>AFTER</h3>
+    <div id="after2"></div>
+    <p>Doing this prepares objects to be sent to the server.</p>
+
+    <script>
+        var obj = { name: "John", age: 30, city: "New York" };
+        var stringifiedText = JSON.stringify(obj);
+        var newText = document.createElement('p');
+        newText.innerHTML = stringifiedText;
+        var container = document.getElementById('after2').appendChild(newText);
+    </script>
+</body>
+
+</html>
