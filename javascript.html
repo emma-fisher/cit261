@@ -1,0 +1,64 @@
+<html>
+
+<head>
+    <title>Loops, Conditional Statements, Functions, Variables, Parameters, Arrays, Associative Arrays</title>
+    <link rel='stylesheet' type='text/css' href=''>
+</head>
+
+<body>
+    <h1>Loops, Conditional Statements, Functions, Variables, Parameters, Arrays, Associative Arrays</h1>
+    Find all multiples of <input type='number' id='multiple'>
+    in numbers <input type='number' id='num1'>
+    through <input type='number' id='num2'>
+    <button onclick='findMultiples()'>Go!</button>
+    <div id="container"></div>
+
+    <script>
+        function findMultiples() {
+            var num1 = document.getElementById('num1').value;
+            var num2 = document.getElementById('num2').value;
+            var multiple = document.getElementById('multiple').value;
+            var container = document.getElementById('container');
+
+            for (var i = num1; i <= num2; i++) {
+                if (i % multiple == 0) {
+                    var match = document.createElement('div');
+                    match.innerHTML = i;
+                    container.appendChild(match);
+                }
+            }
+        }
+    </script>
+    <br>
+    <div>
+        &#10004;Loops &#10004;Conditional Statements &#10004;Functions &#10004;Variables
+    </div>
+    <br><br><br>
+    <div>
+        <p>Click on a name to find out the person's age and to generate a random hair color for them</p>
+        <button value='Bob' onclick='getAge(this.value)'>Bob</button>
+        <button value='Kate' onclick='getAge(this.value)'>Kate</button>
+        <button value='Joseph' onclick='getAge(this.value)'>Joseph</button>
+        <button value='Maxwell' onclick='getAge(this.value)'>Maxwell</button>
+        <button value='Emma' onclick='getAge(this.value)'>Emma</button>
+        <p id='age-container'></p>
+
+
+    </div>
+    <script>
+        function getAge(name) {
+            var ageContainer = document.getElementById('age-container');
+
+            var possibleHair = ['red', 'blonde', 'rainbow', 'black', 'brown'];
+            var random = Math.floor(Math.random() * possibleHair.length);
+            var array = { 'Bob': '46', 'Kate': '23', 'Joseph': '34', 'Maxwell': '25', 'Emma': '20' };
+            ageContainer.innerHTML = `${name} is ${array[name]} years old and has ${possibleHair[random]} hair.`;
+
+        }
+    </script>
+    <div>
+        &#10004;Parameters &#10004;Arrays &#10004;Associative Arrays &#10004;Functions &#10004;Variables
+    </div>
+</body>
+
+</html>
