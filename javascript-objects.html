@@ -8,6 +8,92 @@
 <body>
     <h1>Object Creation Functions, Inheritance, Properties, Methods, Instantiation</h1>
 
+    <p>Objects are like variables that can hold more than one piece of data.</p>
+    <p>In order to create an object in JavaScript, you must give a key and value pair.</p>
+    <code>var obj = {name: 'Emma', age: '20', major: 'software engineering'};</code>
+
+    <p>We can also create functions in JavaScript that can create an object when called. For example, I could create a
+        function that creates a Person object every time it is called. Each of the four attributes are called
+        properties.</p>
+    <code id='one' style="white-space: pre-line"></code>
+    <p>I would need to pass in the required information when I call the function, which is all the parameters of the
+        function. Calling the function instantiates a new person using all the data I pass in.</p>
+    <code>var me = new Person(Emma, Fisher, 2, brown);</code>
+
+    <p>We can also add methods, or functions, to these JavaScript 'classes'. </p>
+    <code>me.fullName = function () { return this.firstname + ' ' + this.lastname; }</code>
+
+    <p>Let's say that you want to create another class, Student. A student has all of the same things a Person has, and
+        also has a major. Instead of writing out the entire class again for Student, we can make Student inherit from
+        the Person class.</p>
+    <code id='two' style="white-space: pre-line"></code>
+    <br><br>
+    <p>Click the buttons below to create a new person or student object with random characteristics.</p>
+    <button onclick='createPerson()'>Person</button>
+    <button onclick='createStudent()'>Student</button>
+    <div id='newPerson'></div>
+    <div id='newStudent'></div>
+
+
+
+    <script>
+        function Person(firstname, lastname, age, hairColor) {
+            this.firstname = firstname
+            this.lastname = lastname;
+            this.age = age;
+            this.hairColor = hairColor;
+        }
+        var me = new Person('Emma', 'Fisher', 2, 'brown');
+        me.fullName = function () { return this.firstname + ' ' + this.lastname; }
+
+        var one = document.getElementById('one');
+        one.innerHTML = Person;
+
+        function Student(firstname, lastname, age, hairColor, major) {
+            Person.call(this, firstname, lastname, age, hairColor);
+
+            this.major = major;
+        }
+
+        var myStudent = new Student('Bob', 'Joe', 25, 'blonde', 'physics');
+        var two = document.getElementById('two');
+        two.innerHTML = Student;
+
+        function createPerson() {
+            var possibleFirst = ['Emily', 'Joseph', 'Russell', 'Max', 'Anne'];
+            var possibleLast = ['Cardoso', 'Brown', 'Lund', 'Fisher', 'Nelson'];
+            var possibleAge = ['5', '78', '24', '18', '53'];
+            var possibleHair = ['red', 'blonde', 'rainbow', 'black', 'brown'];
+
+            var random1 = Math.floor(Math.random() * possibleFirst.length);
+            var random2 = Math.floor(Math.random() * possibleLast.length);
+            var random3 = Math.floor(Math.random() * possibleAge.length);
+            var random4 = Math.floor(Math.random() * possibleHair.length);
+
+            var person = new Person(possibleFirst[random1], possibleLast[random2], possibleAge[random3], possibleHair[random4]);
+            console.log(person)
+            var newPerson = document.getElementById('newPerson');
+            newPerson.innerHTML = `Hi, my name is ${person.firstname} ${person.lastname}. I am ${person.age} years old and have ${person.hairColor} hair.`;
+        }
+
+        function createStudent() {
+            var possibleFirst = ['Emily', 'Joseph', 'Russell', 'Max', 'Anne'];
+            var possibleLast = ['Cardoso', 'Brown', 'Lund', 'Fisher', 'Nelson'];
+            var possibleAge = ['5', '78', '24', '18', '53'];
+            var possibleHair = ['red', 'blonde', 'rainbow', 'black', 'brown'];
+            var possibleMajor = ['Physics', 'Software Engineering', 'Culinary Arts', 'Biology', 'Religion'];
+
+            var random1 = Math.floor(Math.random() * possibleFirst.length);
+            var random2 = Math.floor(Math.random() * possibleLast.length);
+            var random3 = Math.floor(Math.random() * possibleAge.length);
+            var random4 = Math.floor(Math.random() * possibleHair.length);
+            var random5 = Math.floor(Math.random() * possibleMajor.length);
+
+            var student = new Student(possibleFirst[random1], possibleLast[random2], possibleAge[random3], possibleHair[random4], possibleMajor[random5]);
+            var newStudent = document.getElementById('newStudent');
+            newStudent.innerHTML = `Hi, I am a student majoring in ${student.major}. My name is ${student.firstname} ${student.lastname}. I am ${student.age} years old and have ${student.hairColor} hair.`;
+        }
+    </script>
 
 </body>
 
