@@ -2,12 +2,51 @@
 
 <head>
     <title>DOM Manipulation Using createElement, appendChild, insertBefore, removeChild, etc.</title>
-    <link rel='stylesheet' type='text/css' href=''>
+    <link rel='stylesheet' type='text/css' href='./mycss.css'>
 </head>
 
 <body>
     <h1>DOM Manipulation Using createElement, appendChild, insertBefore, removeChild, etc.</h1>
+    <div class='mainArea'>
+        <label for="item">Item Name</label>
+        <input id='item'>
+        <br>
+        <label for="itemIndex">Item Position</label>
 
+        <input type='number' id='itemIndex'>
+        <br>
+        <button id='add' onclick='addItem()'>Add Item</button>
+        <button id='remove' onclick='removeItem()'>Remove Item</button>
+    </div>
+
+    <ol id='listContainer'>
+
+    </ol>
+
+    <script>
+
+        var container = document.getElementById('listContainer');
+
+
+        function addItem() {
+            var itemIndex = document.getElementById('itemIndex').value;
+
+            var itemName = document.getElementById('item').value;
+            var listItem = document.createElement('li');
+            listItem.innerHTML = itemName;
+            //container.appendChild(listItem);
+            console.log(itemIndex - 1)
+            container.insertBefore(listItem, container.childNodes[itemIndex]);
+            document.getElementById('item').value = '';
+
+        }
+
+        function removeItem() {
+            var itemIndex = document.getElementById('itemIndex').value;
+
+            container.removeChild(container.childNodes[itemIndex]);
+        }
+    </script>
 
 </body>
 

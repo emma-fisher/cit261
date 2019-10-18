@@ -1,0 +1,27 @@
+/* #listContainer {
+    
+} */
+
+.mainArea {
+    background-color: #78b524;
+    text-align: center;
+    padding: 20px 15px;
+    width: 300px;
+}
+
+input {
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+label {
+    font-size: 20px;
+    padding: 10px;
+}
+
+button {
+    padding: 12px 20px;
+    margin: 8px 0;
+}
