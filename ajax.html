@@ -7,7 +7,29 @@
 
 <body>
     <h1>Using XMLHTTPRequest to Consume a JSON Web Service</h1>
-
+    <p>We can make calls to different APIs using pure JavaScript. This type of request is called an AJAX request.</p>
+    <button value='grease' onclick='getMovie(this.value)'>Grease</button>
+    <button value='avengers' onclick='getMovie(this.value)'>The Avengers</button>
+    <button value='lion+king' onclick='getMovie(this.value)'>Lion King</button>
+    <div id='container'></div>
+    <script>
+        function getMovie(title) {
+            // Create new request
+            var xhttp = new XMLHttpRequest();
+            // Run this function when the browser is ready
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    // Set the inner HTML of the div to the results of the call
+                    document.getElementById("container").innerHTML =
+                        this.responseText;
+                }
+            };
+            // Give the URL to request to, which has a dynamic searcg query
+            xhttp.open("GET", `http://www.omdbapi.com/?t=${title}&apikey=b1e50f8f`, true);
+            // Send the request
+            xhttp.send();
+        }
+    </script>
 
 </body>
 
