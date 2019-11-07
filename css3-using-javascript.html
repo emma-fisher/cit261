@@ -3,11 +3,65 @@
 <head>
     <title>Manipulating CSS Class Properties Using JavaScript</title>
     <link rel='stylesheet' type='text/css' href=''>
+
+    <style>
+        .highlight {
+            background-color: aqua;
+        }
+
+        .big {
+            font-size: 3em;
+        }
+
+        .green {
+            color: green;
+        }
+    </style>
 </head>
 
 <body>
     <h1>Manipulating CSS Class Properties Using JavaScript</h1>
+    <p>JavaScript has the ability to change, add, and remove CSS class properties.</p>
+    <p>I have some prewritten CSS classes that are not being used when the page is first loaded. Click on the
+        buttons/hover over the elements below to see those classes be dynamically added.</p>
+    <div id="highlight">This text will be highlighted</div>
+    <button onclick="addHighlight()">Add Highlight</button>
+    <br><br>
+    <div id="small">The size of this text will be changed</div>
+    <button onclick="changeSize()">Change Text Size</button>
+    <br><br>
+    <div id="blackText" onmouseover="changeColor(this)">Mouse over me to change my color</div>
+    <br><br><br><br>
+    <p>To reset all the styles, click on the button below.</p>
+    <button onclick='removeAll()'>Reset All</button>
 
+    <script>
+        function addHighlight() {
+            var highlight = document.getElementById('highlight');
+            highlight.setAttribute('class', 'highlight');
+        }
+
+        function changeSize() {
+            var small = document.getElementById('small');
+            small.setAttribute('class', 'big');
+        }
+
+        function changeColor(element) {
+            element.setAttribute('class', 'green');
+        }
+
+        function removeAll() {
+            var highlight = document.getElementById('highlight');
+            var small = document.getElementById('small');
+            var black = document.getElementById('blackText');
+
+            highlight.removeAttribute('class', 'highlight');
+            small.removeAttribute('class', 'big');
+            black.removeAttribute('class', 'green');
+
+        }
+
+    </script>
 
 </body>
 
