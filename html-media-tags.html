@@ -8,7 +8,45 @@
 <body>
     <h1>HTML5 Tags - Video, Audio, and Canvas</h1>
 
+    <p>The HTML5 Video Tag allows a video to be played in the browser without needing any plugins as with previous
+        versions of HTML. It appears as an embedded video in the webpage, as shown below.</p>
+    <video width='400' controls>
+        <source src='file_example_MP4_480_1_5MG.mp4' type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
 
+
+    <p>The text between the opening and closing tags of video, audio, or canvas does not appear in the browser unless it
+        is not supported in that browser.</p>
+
+    <p>The HTML5 Audio Tag allows an audio file to be played in the browser, again without needing any plugins as was
+        needed in previous versions of HTML. It is also embedded into the browser, as shown below.</p>
+    <audio controls>
+        <source src='file_example_MP3_700KB.mp3' type='audio/mp3'>
+        Your browser does not support HTML5 video.
+    </audio>
+
+
+    <p>The HTML5 Canvas Tag is used as a container to hold graphics on a webpage. Keep in mind that since this is jsut a
+        container, the graphics must still be drawn using JavaScript apart from using the Canvas tag.</p>
+    <p>Below I have used Javascript to draw a linear gradient, and that is held within the canvas tag that I created.
+        You are able to set the width and height of the tag as an attribute.</p>
+    <canvas id='gradient' width='200' height='200'>
+
+        Your browser does not support HTML5 canvas.
+    </canvas>
+
+    <script>
+        var c = document.getElementById("gradient");
+        var ctx = c.getContext("2d");
+        // Create gradient
+        var grd = ctx.createLinearGradient(0, 0, 200, 0);
+        grd.addColorStop(0, "red");
+        grd.addColorStop(1, "white");
+        // Fill with gradient
+        ctx.fillStyle = grd;
+        ctx.fillRect(10, 10, 150, 80);
+    </script>
 </body>
 
 </html>
