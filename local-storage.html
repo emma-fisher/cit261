@@ -7,7 +7,41 @@
 
 <body>
     <h1>Local Storage API, Storing and Retrieving Simple Data, Arrays, Associative Arrays, and Objects</h1>
+    <p>The local storage of the browser allows us to store small pieces of information in key value pairs. This can be
+        useful when trying to store something such as the first or last name of a user. This is helpful because this
+        small piece of information is saved even when the browser is closed, and so can be accessed across multiple
+        browser sessions.</p>
 
+    <p>We use the setItem function to add a key value pair to the local storage of the browser.</p>
+    <button onclick='setItem(this.value)' value='vanilla'>Set Favorite Flavor to Vanilla</button>
+    <button onclick='setItem(this.value)' value='chocolate'>Set Favorite Flavor to Chocolate</button>
+    <button onclick='setItem(this.value)' value='strawberry'>Set Favorite Flavor to Strawberry</button>
+
+    <p>We use the getItem function to retrieve the data we have stored in local storage. In order to retreive an item,
+        the key of it must be used in the function.</p>
+    <button onclick='getItem()'>Get Favorite Flavor</button>
+    <div id='flavor'></div>
+
+    <p>We can also use them removeItem function to remove the data we have stored in local storage. In order to delete
+        an item, the key of it must be used inside the function.</p>
+    <button onclick='removeItem()'>Remove Favorite Flavor from local storage</button>
+    <p>After removing the value, when you click the button to get the value, it should now be blank. That key value pair
+        no longer exists in the browser.</p>
+
+    <script>
+        function setItem(flavor) {
+            localStorage.setItem('favoriteFlavor', flavor);
+        }
+
+        function getItem() {
+            var flavorContainer = document.getElementById('flavor');
+            flavor.innerHTML = localStorage.getItem('favoriteFlavor');
+        }
+
+        function removeItem() {
+            localStorage.removeItem('favoriteFlavor');
+        }
+    </script>
 
 </body>
 
