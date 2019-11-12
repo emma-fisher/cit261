@@ -3,11 +3,92 @@
 <head>
     <title>Creating CSS3 Transitions and Animations in CSS and triggering them with JavaScript</title>
     <link rel='stylesheet' type='text/css' href=''>
+    <style>
+        #box {
+            background-color: green;
+            width: 50px;
+            height: 50px;
+            margin: 30px;
+        }
+
+        #box.moveRight {
+            transition: 3s;
+            margin-left: 50%;
+        }
+
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: relative;
+            margin: 30px;
+        }
+
+        .animateMe {
+            animation-name: moveAndColor;
+            animation-duration: 4s;
+        }
+
+        @keyframes moveAndColor {
+            0% {
+                background-color: red;
+                left: 0px;
+                top: 0px;
+            }
+
+            25% {
+                background-color: yellow;
+                left: 200px;
+                top: 0px;
+            }
+
+            50% {
+                background-color: blue;
+                left: 200px;
+                top: 200px;
+            }
+
+            75% {
+                background-color: green;
+                left: 0px;
+                top: 200px;
+            }
+
+            100% {
+                background-color: red;
+                left: 0px;
+                top: 0px;
+            }
+        }
+    </style>
 </head>
 
 <body>
     <h1>Creating CSS3 Transitions and Animations in CSS and triggering them with JavaScript</h1>
+    <p>JavaScript can be used to trigger different events in CSS. We do this by dynamically adding or removing different
+        CSS classes from the HTML element using JavaScript functions.</p>
+    <p>For example, if your press the button below, a class of 'moveRight' will by dynamically added to the box and it
+        will slide to the right side of the screen. Click again and it will return to its orginial position. This
+        happens only when you press the button because it is triggered by JavaScript.</p>
+    <div id='box'></div>
+    <button onclick='moveRight()'>Click me!</button>
+    <br><br><br>
+    <p>Here is another example of how JavaScript can trigger animations as well. Again, click the button to start and to
+        stop the animation.</p>
+    <div id='myBox'></div>
+    <button onclick='startAnimation()'>Click here</button>
 
+    <script>
+        function moveRight() {
+            var box = document.getElementById('box');
+            box.classList.toggle('moveRight');
+        }
+
+        function startAnimation() {
+            var myBox = document.getElementById('myBox');
+            myBox.classList.toggle('animateMe');
+        }
+    </script>
 
 </body>
 
