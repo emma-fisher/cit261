@@ -1,0 +1,130 @@
+<html>
+
+<head>
+    <title>Designing, Defining, and Triggering CSS3 Animations without Custom Libraries (Thought Library)</title>
+    <link rel='stylesheet' type='text/css' href=''>
+    <style>
+        div {
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            margin: 30px;
+        }
+
+        #myDIV {
+            margin: 25px;
+            width: 550px;
+            height: 100px;
+            background: orange;
+            position: relative;
+            font-size: 20px;
+        }
+
+        @keyframes mymove {
+            from {
+                top: 0px;
+            }
+
+            to {
+                top: 200px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Standard JavaScript events Including those for Mobile Devices and Animation and Transition Events</h1>
+
+    <p>There are so many different events in JavaScript, but some of the more common ones are:</p>
+    <ul>
+        <li>onclick</li>
+        <li>onchange</li>
+        <li>onmouseover</li>
+        <li>onmouseout</li>
+        <li>onkeydown</li>
+        <li>onload</li>
+    </ul>
+
+    <p>There are two different ways to use these events. One is to add them as an attribute in an HTML element to
+        trigger a javascript function or other code, and the other is to use them only in the JavaScript. I'll
+        demonstrate both below.</p>
+
+    <p>If you mouse over this box, its color will change. The event here was added in the HTML.</p>
+
+    <div id='mouseOverOne' onmouseover="changeColor(this)"></div>
+
+    <p>With this box the event was solely created in the JavaScript. Click on the box to see it grow.</p>
+    <div id='boxTwo'></div>
+
+
+    <h3>Mobile Device Events</h3>
+    <p>There are four special JavaScript events made to be used on mobile devices or other touchscreen devices. They
+        are:</p>
+    <ul>
+        <li>touchstart</li>
+        <li>touchend</li>
+        <li>touchmove</li>
+        <li>touchcancel</li>
+    </ul>
+
+    <p>Keep in mind, these events only work on touchscreen devices.</p>
+
+    <h3>Animation and Transition Events</h3>
+    <p>There are three special JavaScript events that have to do with animations. They are:</p>
+    <ul>
+        <li>animationend</li>
+        <li>animationstart</li>
+        <li>animationiteration</li>
+
+    </ul>
+    <p>See the example below on how each of those three events works.</p>
+
+    <div id="myDIV" onclick="myFunction()">Click me to start the animation.</div>
+
+    <script>
+        function changeColor(el) {
+            console.log(el)
+            el.style.backgroundColor = 'blue';
+        }
+
+        function changeSize() {
+            var boxTwo = document.getElementById('boxTwo');
+            boxTwo.style.width = '100px';
+            boxTwo.style.height = '100px';
+
+        }
+
+        var boxTwo = document.getElementById('boxTwo');
+        boxTwo.addEventListener('click', changeSize);
+
+        var x = document.getElementById("myDIV");
+
+        function myFunction() {
+            x.style.animation = "mymove 4s 2";
+        }
+
+        x.addEventListener("animationstart", myStartFunction);
+        x.addEventListener("animationiteration", myRepeatFunction);
+        x.addEventListener("animationend", myEndFunction);
+
+
+        function myStartFunction() {
+            this.innerHTML = "animationstart event occured - The animation has started";
+            this.style.backgroundColor = "pink";
+        }
+
+        function myRepeatFunction() {
+            this.innerHTML = "animationiteration event occured - The animation was played again";
+            this.style.backgroundColor = "lightblue";
+        }
+
+        function myEndFunction() {
+            this.innerHTML = "animationend event occured - The animation has completed";
+            this.style.backgroundColor = "lightgray";
+        }
+
+    </script>
+
+</body>
+
+</html>
