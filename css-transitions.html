@@ -1,0 +1,63 @@
+<html>
+
+<head>
+    <title>Designing, Defining, and Triggering CSS3 Transitions without Custom Libraries</title>
+    <link rel='stylesheet' type='text/css' href=''>
+    <style>
+        #changeWidth {
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            transition: width 2s;
+        }
+
+        #changeWidth:hover {
+            width: 200px;
+        }
+
+        #changeColor {
+            width: 100px;
+            height: 100px;
+            background-color: blueviolet;
+            transition: background-color 3s;
+        }
+
+        #changeColor:hover {
+            background-color: pink;
+        }
+
+        #all {
+            width: 100px;
+            height: 100px;
+            background-color: darkcyan;
+            transition: all 2s;
+        }
+
+        #all:hover {
+            width: 200px;
+            height: 200px;
+            background-color: burlywood;
+            border: gray solid 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Designing, Defining, and Triggering CSS3 Transitions without Custom Libraries</h1>
+
+    <p>CSS has a transition property that allows you to change property values smoothly and over a certain amount of
+        seconds.</p>
+    <p>The transition property is shorthand for the four properties in a transition: transition-delay,
+        transition-duration, transition-property, and transition-timing function.</p>
+
+    <p>For example, I can change the width of this box when I hover over it. Give it a try!</p>
+    <div id='changeWidth'></div>
+
+    <p>I can change the color of the box too in a transition when hovered over.</p>
+    <div id='changeColor'></div>
+
+    <p>I can also transition more than one thing at a time by specifying 'all' in the transition property.</p>
+    <div id='all'></div>
+</body>
+
+</html>
