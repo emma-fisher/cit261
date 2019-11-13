@@ -1,12 +1,64 @@
 <html>
 
 <head>
-    <title>Designing, Defining, and Triggering CSS3 Transforms without Custom Libraries (Thought Library)</title>
+    <title>Designing, Defining, and Triggering CSS3 Transforms without Custom Libraries</title>
     <link rel='stylesheet' type='text/css' href=''>
+
+    <style>
+        div.b {
+            width: 150px;
+            height: 80px;
+            background-color: pink;
+            transform: rotate(20deg);
+        }
+
+        div.a {
+            width: 150px;
+            height: 80px;
+            background-color: cadetblue;
+            transform: skewY(20deg);
+        }
+
+        div.c {
+            width: 150px;
+            height: 80px;
+            background-color: coral;
+            transform: scaleY(1.5);
+        }
+
+        div.d {
+            width: 150px;
+            height: 80px;
+            background-color: darkgoldenrod;
+            transform: translate(50px, 100px);
+        }
+
+        p {
+            margin: 30px;
+        }
+    </style>
 </head>
 
 <body>
-    <h1>Designing, Defining, and Triggering CSS3 Transforms without Custom Libraries (Thought Library)</h1>
+    <h1>Designing, Defining, and Triggering CSS3 Transforms without Custom Libraries</h1>
+    <p>The transform property in CSS has many different values and capabilites. Some of the things you can do are
+        rotate, skew, translate, and scale.</p>
+
+    <p>Here is an example of skewing an element using CSS transform.</p>
+    <div class='a'>Skewed!</div>
+
+    <p>Here is an example of rotating an element using CSS transform.</p>
+    <div class='b'>Rotated!</div>
+
+    <p>Here is an example of scaling an element using CSS transform.</p>
+    <div class='c'>Scaled!</div>
+
+    <p>Here is an example of translating an element using CSS transform.</p>
+    <div class='d'>Translated!</div>
+
+    <br><br><br><br><br>
+    <p>Different options within the transform property depend on how you are transforming the object. Click <a
+            href='https://www.w3schools.com/cssref/css3_pr_transform.asp'>here</a> for a complete list.</p>
 
 
 </body>
