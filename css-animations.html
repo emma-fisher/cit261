@@ -3,11 +3,64 @@
 <head>
     <title>Designing, Defining, and Triggering CSS3 Animations without Custom Libraries</title>
     <link rel='stylesheet' type='text/css' href=''>
+
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: relative;
+            animation-name: example;
+            animation-duration: 4s;
+            animation-iteration-count: 3;
+        }
+
+
+        @keyframes example {
+            0% {
+                background-color: red;
+                left: 0px;
+                top: 0px;
+            }
+
+            25% {
+                background-color: yellow;
+                left: 200px;
+                top: 0px;
+            }
+
+            50% {
+                background-color: blue;
+                left: 200px;
+                top: 200px;
+            }
+
+            75% {
+                background-color: green;
+                left: 0px;
+                top: 200px;
+            }
+
+            100% {
+                background-color: red;
+                left: 0px;
+                top: 0px;
+            }
+        }
+    </style>
 </head>
 
 <body>
     <h1>Designing, Defining, and Triggering CSS3 Animations without Custom Libraries</h1>
 
+    <p>Animations in CSS allow you to change the CSS of an element gradually, without needing to use JavaScript.</p>
+    <p>There are many different properties that go along with CSS animations, including the duration, the delay, and the
+        keyframes.</p>
+    <p>Below you will see a div changing color and position gradually. This is done without needing to press a button
+        and trigger JavaScript, but runs automatically using CSS. How cool! This animation will run three times before
+        stopping because I specified the iteration amount in my CSS.</p>
+
+    <div></div>
 
 </body>
 
