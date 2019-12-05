@@ -86,10 +86,15 @@ function shuffle() {
 
 cards.forEach(card => card.addEventListener('click', flipCard));
 shuffle();
+var name = prompt("Enter your name");
+localStorage.setItem('name', name);
+
+if (name) {
+    document.getElementById('name').innerHTML = localStorage.getItem('name');
+}
 
 
 
 // TO DO
-// Add animation (keyframes)
 // Use AJAX
 // Use localstorage

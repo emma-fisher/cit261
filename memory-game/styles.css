@@ -57,9 +57,9 @@
     transform: rotateY(180deg);
   }
 
-  /* .hide {
+  .hide {
     display: none;
-  } */
+  }
 
   #popup {
     width: 500px;
