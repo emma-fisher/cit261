@@ -66,6 +66,13 @@ function resetBoard() {
 }
 
 function startGame() {
+    // numWins++;
+    if (localStorage.getItem('wins') == undefined) {
+        localStorage.setItem('wins', 1);
+    } else {
+        localStorage.setItem('wins', parseInt(localStorage.getItem('wins')) + 1);
+    }
+    document.getElementById('wins').innerHTML = localStorage.getItem('wins');
     numMatches = 0;
     cards.forEach(card => card.classList.remove('flip'));
     shuffle();
@@ -86,12 +93,9 @@ function shuffle() {
 
 cards.forEach(card => card.addEventListener('click', flipCard));
 shuffle();
-var name = prompt("Enter your name");
-localStorage.setItem('name', name);
+// localStorage.setItem('wins', numWins);
+// document.getElementById('wins').innerHTML = localStorage.getItem('wins');
 
-if (name) {
-    document.getElementById('name').innerHTML = localStorage.getItem('name');
-}
 
 
 

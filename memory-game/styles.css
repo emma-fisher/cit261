@@ -104,3 +104,8 @@
     75% { font-size: 80px;  }
     100% { font-size: 70px;  }
   }
+
+  .wins-p {
+    writing-mode: vertical-rl;
+text-orientation: upright;
+  }
