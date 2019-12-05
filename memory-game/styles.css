@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap');
+
+
 * {
     padding: 0;
     margin: 0;
@@ -52,4 +55,52 @@
   
   .front-face {
     transform: rotateY(180deg);
+  }
+
+  /* .hide {
+    display: none;
+  } */
+
+  #popup {
+    width: 500px;
+    height: 300px;
+    background-color: white;
+    position: fixed;
+    border-radius: 10px;
+    padding: 20px;
+    top: 27%;
+    left: 31.5%;
+    font-size: 30px;
+    text-align: center;
+    font-family: 'Bebas Neue', cursive;
+  }
+
+  #popup button {
+    background-color: purple;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+  }
+
+  #popup h3 {
+    background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation-name: pulsate;
+    animation-iteration-count: infinite;
+    animation-duration: 5000ms;
+    font-size: 70px;
+    margin-bottom: 0px;
+  }
+
+  @keyframes pulsate {
+    0% { font-size: 70px; }
+    25% { font-size: 80px;  }
+    50% { font-size: 70px;  }
+    75% { font-size: 80px;  }
+    100% { font-size: 70px;  }
   }

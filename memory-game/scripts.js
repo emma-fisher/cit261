@@ -1,10 +1,13 @@
 var cardsObj = document.getElementsByClassName('memory-card');
 var cards = Object.values(cardsObj);
+var popup = document.getElementById('popup');
+
 
 var hasFlippedCard = false;
 var lockBoard = false;
 var firstCard = 0;
 var secondCard = 0;
+var numMatches = 0;
 
 
 function flipCard() {
@@ -28,6 +31,10 @@ function checkForMatch() {
 
     if (isMatch) {
         disableCards();
+        numMatches++;
+        if (numMatches === 6) {
+            popupModal();
+        }
     } else {
         unflipCards();
     }
@@ -58,11 +65,31 @@ function resetBoard() {
     secondCard = null;
 }
 
-(function shuffle() {
+function startGame() {
+    numMatches = 0;
+    cards.forEach(card => card.classList.remove('flip'));
+    shuffle();
+    cards.forEach(card => card.addEventListener('click', flipCard));
+    popup.classList.add('hide');
+}
+
+function popupModal() {
+    popup.classList.remove('hide');
+}
+
+function shuffle() {
     cards.forEach(card => {
         var randomPosition = Math.floor(Math.random() * 12);
         card.style.order = randomPosition;
     })
-})();
+}
 
-cards.forEach(card => card.addEventListener('click', flipCard))
+cards.forEach(card => card.addEventListener('click', flipCard));
+shuffle();
+
+
+
+// TO DO
+// Add animation (keyframes)
+// Use AJAX
+// Use localstorage
