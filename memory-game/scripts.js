@@ -96,8 +96,24 @@ shuffle();
 
 document.getElementById('wins').innerHTML = localStorage.getItem('wins') || 0;
 
+function loadFact() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            var data = JSON.parse(this.responseText);
+            var num = Math.floor(Math.random() * 2);
+            document.getElementById("fact").innerHTML =
+                data[num];
+        }
+    };
+    xhttp.open("GET", "facts.json", true);
+    xhttp.send();
+}
 
+// function getFact() {
+//     var facts = loadFact();
+//     document.getElementById('fact').innerHTML = facts;
+// }
 
 // TO DO
 // Use AJAX
-// Use localstorage

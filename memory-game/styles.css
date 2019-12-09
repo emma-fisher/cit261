@@ -15,7 +15,7 @@
   
   .memory-game {
     width: 640px;
-    height: 640px;
+    height: 600px;
     margin: auto;
     display: flex;
     flex-wrap: wrap;
@@ -105,7 +105,34 @@
     100% { font-size: 70px;  }
   }
 
+  .wins-container {
+    position:fixed;
+    background-color: white;
+    border-radius: 5px;
+    width:250px;
+    text-align: center;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+  }
+
   .wins-p {
-    writing-mode: vertical-rl;
-text-orientation: upright;
+    text-align: center;
+    padding: 20px;
+    font-size: 20px;
+    font-family: monospace;
+  }
+
+  .wins-container button {
+    background-color: purple;
+    border: none;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 12px;
+    font-family: "Trebuchet MS", Helvetica, sans-serif
+  }
+
+  #fact {
+    margin: 10px;
+    padding: 10px;
   }
