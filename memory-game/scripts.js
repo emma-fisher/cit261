@@ -66,8 +66,8 @@ function resetBoard() {
 }
 
 function startGame() {
-    // numWins++;
-    if (localStorage.getItem('wins') == undefined) {
+    console.log(localStorage.getItem('wins'))
+    if (localStorage.getItem('wins') == undefined || localStorage.getItem('wins') == 0) {
         localStorage.setItem('wins', 1);
     } else {
         localStorage.setItem('wins', parseInt(localStorage.getItem('wins')) + 1);
@@ -93,9 +93,8 @@ function shuffle() {
 
 cards.forEach(card => card.addEventListener('click', flipCard));
 shuffle();
-// localStorage.setItem('wins', numWins);
-// document.getElementById('wins').innerHTML = localStorage.getItem('wins');
 
+document.getElementById('wins').innerHTML = localStorage.getItem('wins') || 0;
 
 
 
